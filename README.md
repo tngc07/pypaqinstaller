@@ -8,7 +8,7 @@ Download & run the script automatically via PowerShell.
 2. Copy and paste the command below into PowerShell:
 
 ```PowerShell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/tngc07/pypaqinstaller/main/install.ps1 | iex)))
+irm https://raw.githubusercontent.com/tngc07/pypaqinstaller/main/install.ps1 | iex
 ```
 3. Wait for script to finish.
 4. You should now have all the dependencies you need to use Invoice parser.
