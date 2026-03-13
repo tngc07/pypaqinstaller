@@ -240,7 +240,8 @@ if ($pdfInfoExe) {
 Write-Header "Python packages (requirements.txt)"
 
 # Try to find a requirements.txt next to the script, or use the embedded list
-$reqFile = Join-Path $PSScriptRoot 'requirements.txt'
+$scriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { $PWD.Path }
+$reqFile = Join-Path $scriptDir 'requirements.txt'
 
 if (Test-Path $reqFile) {
     Write-Info "Found requirements.txt â€” installing..."
@@ -262,3 +263,4 @@ Write-OK "Poppler  : $(if ($pdftoppm) { $pdftoppm.Source } else { 'not on PATH â
 Write-Host ""
 Write-Host "  You're ready to use invoice-parser." -ForegroundColor White
 Write-Host ""
+
